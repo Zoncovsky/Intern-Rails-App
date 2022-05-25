@@ -36,5 +36,5 @@ require("chart.js")
 
 require("trix")
 require("@rails/actiontext")
-//= require jquery
-//= require jquery_ujs
+require ("jquery")
+require ("jquery_ujs")
