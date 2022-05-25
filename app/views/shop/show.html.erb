@@ -1,0 +1,21 @@
+<div class="card w-50">
+  <h5 class="card-header">Your Order</h5>
+  <div class="card-body text-center">
+    <h5 class="card-title">
+      <% if @menu.image.attached? %>
+        <image src="<%=(url_for(@menu.image))%>">
+      <% end %>
+    </h5></br>
+    <h5 class="card-title">
+      <strong>Coffee Name:</strong>
+      <%= @menu.title %>
+    </h5></br>
+    <h5 class="card-title">
+      <strong>Price:</strong>
+      <%= @menu.price %>
+    </h5></br>
+  </div>
+</div>
+</br></br>
+
+<%= link_to 'Back', menus_path, class:"btn btn-outline-dark" %>

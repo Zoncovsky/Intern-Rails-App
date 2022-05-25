@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :menus
+  resources :shops, only:[:index, :show]
+  resources :order_items
+  resource :cards, only:[:show]
+  
+  get 'home/staff'
+  root 'shop#index'
 end

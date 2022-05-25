@@ -1,0 +1,17 @@
+.offcanvas-body {
+	padding-right: 22px;
+}
+.show-more {
+	padding-left: 60px;
+}
+.show-list {
+	margin-left: 20px;
+}
+.show-list-1 {
+	list-style-type: none;
+	font-weight: 700;
+	font-size: 30px;
+}
+.navbar-brand {
+	padding-left: 30px;
+}

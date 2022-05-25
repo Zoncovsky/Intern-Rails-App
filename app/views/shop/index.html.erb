@@ -1,0 +1,35 @@
+<div class="container px-4 py-5">
+  <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-5">
+    <% @menus.each do |menu| %>
+      <% if menu.user_id == current_user %>
+        <h1>If you want to order something, please Log In/Sign Up.
+      <% else %>
+        <div class="card card card-cover h-100 overflow-hidden text-balck text-center rounded-5" style="background-color: #e3f2fd;">
+            <div class="card-body">
+              <p class="card-text"><image src="<%=(url_for(menu.image))%>"></p>
+              <h5 class="card-title"><%= menu.title %></h5>
+              <p class="card-text"><%= menu.price %>$</p>
+              <%= form_for @order_item, remote: true  do |f|%>
+                <%= f.hidden_field :menu_id, :value => menu.id %>
+                <%= f.hidden_field :quantity, :value => 1, :min =>  1%>
+                <%= f.submit "Add to Card", class:"btn btn-outline-success"%>
+                <br>
+                <br>
+              <% end %>
+              <%= link_to 'Show', menu, class:"btn btn-outline-secondary" %>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+      <div id="card">
+      <%= render 'cards/card'%>
+      </div>
+    </div><br>
+    <div class="card text-center" style="background-color: #e3f2fd;">
+      <div class="card-body">
+        <h3 class="card-title">Most popular order</h3>
+        <%= pie_chart Menu.group(:title).count %>
+      </div>
+    </div>
+  </div>
+</div>

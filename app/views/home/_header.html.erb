@@ -1,0 +1,13 @@
+<header class="site-header sticky-top py-1" style="background-color: #e3f2fd;">
+  <nav class="container d-flex flex-column flex-md-row justify-content-between">
+    <%= link_to 'Coffee', root_path, class:"navbar-brand bi bi-cup-fill", style:"color: green"%>
+    <% if user_signed_in? %>
+      <%= link_to "Cart", cards_path, type:"button", class:"btn btn-outline-dark bi bi-cart-fill", style:"color: green" %>
+      <%= link_to "Edit Profile", edit_user_registration_path, type:"button", class:"btn btn-outline-dark bi bi-person-circle", style:"color: green" %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-right", style:"color: green" %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-in-left", style:"color: green" %>
+      <%= link_to "Sign up", new_user_registration_path, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-up", style:"color: green" %>
+    <% end %> 
+  </nav>
+</header>
