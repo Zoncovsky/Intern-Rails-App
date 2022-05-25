@@ -31,7 +31,6 @@ document.addEventListener("turbolinks:load", () => {
         return new Popover(popoverTriggerEl)
     })
 })
-require.context('../images', true)
 require("chartkick")
 require("chart.js")
 
