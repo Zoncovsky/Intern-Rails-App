@@ -33,6 +33,3 @@ document.addEventListener("turbolinks:load", () => {
 })
 require("chartkick")
 require("chart.js")
-
-require ("jquery")
-require ("jquery_ujs")
