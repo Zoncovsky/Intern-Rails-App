@@ -4,8 +4,8 @@
       <div class="card" style="width: 18rem;">
 				<div class="card-body" style="background-color: #e3f2fd;">
 					<h5 class="card-title">Seller</h5>
-					<%= link_to"Sign up", new_seller_url, class:"btn btn-outline-dark", style:"color:green"%>
-					<%= link_to"Show seller", sellers_url, class:"btn btn-outline-dark", style:"color:green"%>
+						<%= link_to"Sign up", new_seller_registration_path, class:"btn btn-outline-dark", style:"color:green"%>
+						<%= link_to "Sign in", new_seller_session_path, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-in-left", style:"color: green" %>
 				</div>
 			</div>
     </div>
@@ -13,10 +13,10 @@
       <div class="card" style="width: 18rem;">
 				<div class="card-body" style="background-color: #e3f2fd;">
 					<h5 class="card-title">Manager</h5>
-					<%= link_to"Sign up", new_manager_url, class:"btn btn-outline-dark", style:"color:green"%>
-          <%= link_to"Show manager", managers_url, class:"btn btn-outline-dark", style:"color:green"%>
+					<%= link_to"Sign up", new_admin_registration_path, class:"btn btn-outline-dark", style:"color:green"%>
+					<%= link_to "Sign in", new_admin_session_path, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-in-left", style:"color: green" %>
 				</div>
 			</div>
-    </div>
+    </div> 
   </div>
 </div>

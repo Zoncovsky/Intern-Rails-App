@@ -26,11 +26,9 @@
 
   <footer class="footer bg-warning p-2 text-dark bg-opacity-10">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <%= link_to 'Home', root_path, class:"nav-link", style:"color: green"%>
-        <%= link_to "Menu", root_path, class:"nav-link", style:"color: green" %>
-        <% if user_signed_in? %>
-        <%= link_to "Staff", home_staff_path, class:"nav-link", style:"color: green" %>
-        <% end %>
+      <%= link_to 'Home', root_path, class:"nav-link", style:"color: green"%>
+      <%= link_to "Menu", root_path, class:"nav-link", style:"color: green" %>
+      <%= link_to "Staff", home_staff_path, class:"nav-link", style:"color: green" %>
     </ul>
     <p class="text-center text-muted">© 2021 Coffee-Shop, Inc</p>
   </footer>

@@ -8,6 +8,18 @@
     <% else %>
       <%= link_to "Sign in", new_user_session_path, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-in-left", style:"color: green" %>
       <%= link_to "Sign up", new_user_registration_path, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-up", style:"color: green" %>
+          <% if seller_signed_in? %>
+            <%= link_to "Sign Out", destroy_seller_session_path, method: :delete, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-right", style:"color: green" %>
+            <%= link_to "Edit Profile", edit_seller_registration_path, type:"button", class:"btn btn-outline-dark bi bi-person-circle", style:"color: green" %>
+            <%= link_to "Menu", menus_path, type:"button", class:"btn btn-outline-dark bi bi-cart-fill", style:"color: green" %>
+            <%= link_to "Orders", cards_path, type:"button", class:"btn btn-outline-dark bi bi-cart-fill", style:"color: green" %>
+          <% end %>
+          <% if admin_signed_in? %>
+            <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, type:"button", class:"btn btn-outline-dark bi bi-box-arrow-right", style:"color: green" %>
+            <%= link_to "Edit Profile", edit_admin_registration_path, type:"button", class:"btn btn-outline-dark bi bi-person-circle", style:"color: green" %>
+            <%= link_to "Sellers", sellers_index_path, type:"button", class:"btn btn-outline-dark", style:"color: green" %>
+            <%= link_to "Users", users_index_path, type:"button", class:"btn btn-outline-dark", style:"color: green" %>
+          <% end %>
     <% end %> 
   </nav>
 </header>
