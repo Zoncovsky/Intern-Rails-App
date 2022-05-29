@@ -1,7 +1,6 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_seller, only: [:edit, :update, :destroy]
 
 
   # GET /menus or /menus.json
@@ -24,8 +23,8 @@ class MenusController < ApplicationController
 
   # POST /menus or /menus.json
   def create
-    # @menu = Menu.new(menu_params)
-    @menu = current_user.menus.build(menu_params)
+    #@menu = Menu.new(menu_params)
+    @menu = current_seller.menus.build(menu_params)
 
     respond_to do |format|
       if @menu.save
@@ -62,8 +61,8 @@ class MenusController < ApplicationController
     end
   end
 
-  def correct_user
-    @menu = current_user.menus.find_by(id: params[:id])
+  def correct_seller
+    @menu = current_seller.menus.find_by(id: params[:id])
     redirect_to menus_path, notice: "Not Authorized To Edit This Order" if @menu.nil?
   end
 
@@ -75,6 +74,6 @@ class MenusController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def menu_params
-      params.require(:menu).permit(:title, :price, :image, :user_id)
+      params.require(:menu).permit(:title, :price, :image, :user_id, :seller_id)
     end
 end

@@ -1,12 +1,10 @@
 <div class="container px-4 py-5">
   <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-5">
-    <% @menus.each do |menu| %>
-      <% if menu.user_id == current_user %>
-        <h1>If you want to order something, please Log In/Sign Up.
-      <% else %>
-        <div class="card card card-cover h-100 overflow-hidden text-balck text-center rounded-5" style="background-color: #e3f2fd;">
+      <% if user_signed_in? %>
+        <% @menus.each do |menu| %>
+          <div class="card card card-cover h-100 overflow-hidden text-balck text-center rounded-5" style="background-color: #e3f2fd;">
             <div class="card-body">
-              <p class="card-text"><image src="<%=(url_for(menu.image))%>"></p>
+              <p class="card-text"><image src="<%=(url_for(menu.image.variant(resize_to_limit: [300, 300])))%>"></p>
               <h5 class="card-title"><%= menu.title %></h5>
               <p class="card-text"><%= menu.price %>$</p>
               <%= form_for @order_item, remote: true  do |f|%>
@@ -16,14 +14,12 @@
                 <br>
                 <br>
               <% end %>
-              <%= link_to 'Show', menu, class:"btn btn-outline-secondary" %>
             </div>
           </div>
+        <% end %>
+      <% else %>
+        <h1>Welcome to the coffee-shop, in order to see the menu, you need to Log In or Register</h1>
       <% end %>
-    <% end %>
-      <div id="card">
-      <%= render 'cards/card'%>
-      </div>
     </div><br>
     <div class="card text-center" style="background-color: #e3f2fd;">
       <div class="card-body">
