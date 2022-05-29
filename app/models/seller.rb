@@ -5,6 +5,6 @@ class Seller < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :menus
-  validates :email, :password, presence: true
+  validates :name, :email, :password, presence: true
   validates :email, :password, length: { minimum: 4 }
 end
