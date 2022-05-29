@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :shops, only:[:index, :show]
   resources :order_items
   resource :cards, only:[:show]
-  
+  get 'users/index'
   get 'sellers/index'
   get 'sellers/show'
   get 'home/staff'
