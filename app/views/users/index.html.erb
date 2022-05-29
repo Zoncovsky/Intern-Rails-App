@@ -4,7 +4,6 @@
     <thead class="table-dark" style="text-align: center;">
       <tr>
         <th>User Id</th>
-        <th>Name</th>
         <th>Email</th>
         <th colspan="3"></th>
       </tr>
@@ -14,7 +13,6 @@
       <% @users.each do |user| %>
         <tr style="text-align: center;">
           <td><%= user.id %></td>
-          <td><%= user.name %></td>
           <td><%= user.email %></td>
       <% end %>
     </tbody>

@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :order_items
-  validates :email, :password, presence: true
+  validates :name, :email, :password, presence: true
   validates :email, :password, length: { minimum: 4 }
 end
