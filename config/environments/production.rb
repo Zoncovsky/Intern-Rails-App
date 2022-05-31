@@ -63,6 +63,15 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "intern_app_production"
 
   config.action_mailer.perform_caching = false
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'JustARandomUser', # This is the string literal 'apikey', NOT the ID of your API key
+    :password => '', # This is the secret sendgrid API key which was issued during API key creation
+    :domain => 'yourdomain.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
