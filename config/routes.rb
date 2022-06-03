@@ -1,19 +1,13 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  devise_for :admins, controllers: {
-    registrations: 'registrations'
-  }
-  devise_for :sellers, controllers: {
-    registrations: 'registrations'
-  }
-  devise_for :users, controllers: {
-    registrations: 'registrations'
-  }
+  resources :products
+  devise_for :users
+  devise_for :admins
+  devise_for :sellers
   resources :menus
   resources :shops, only:[:index, :show]
   resources :order_items
   resource :cards, only:[:show]
-  
+  get 'users/index'
   get 'sellers/index'
   get 'sellers/show'
   get 'home/staff'
